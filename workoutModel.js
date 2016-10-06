@@ -32,15 +32,17 @@ class Workout {
     this.name            = params.name;
     this.description     = params.description;
     this.timeScheme      = params.timeScheme || 'For time';
-    this.averageTime     = params.averageTime;
+    this.timeCap         = params.timeCap || false; // boolean
+    this.averageTime     = params.averageTime || '5min';
     this.movements       = params.movements || [];
-    //TODO need better breakdown of reps for workouts with distances
     //TODO breakdown timecapped workouts - (timecap / (time per movement * movements))
-    this.repScheme       = params.repScheme || [];
+    this.repScheme       = params.repScheme || []; // rep per round breakdown; separate distance
+    this.distance        = params.distance || []; // distance per round
     this.roundMultiplier = params.roundMultiplier || 0;
     this.weights         = params.weights || {};
     this.linksToMovement = params.linksToMovement || [];
     this.categories      = params.categories || [];
+    this.modality        = params.modality || [];
     this.warmUps         = params.warmUps || [];
     this.date            = params.date || moment().format('YYYY-MM-DD_HH:MM:ss_dddd');
   }
@@ -51,10 +53,12 @@ class Workout {
    * @returns {number}
    */
   getReps() {
-    let totalReps = _.reduce(this.repScheme, (sum, n) => {
+    const calcReps = _.reduce(this.repScheme, (sum, n) => {
       return sum + n;
     }, 0);
-    return (this.roundMultiplier !== 0) ? totalReps * this.roundMultiplier : totalReps;
+    const totalDist = (this.roundMultiplier !== 0) ? this.distance * this.roundMultiplier : this.distance;
+    const totalReps = (this.roundMultiplier !== 0) ? calcReps * this.roundMultiplier : calcReps;
+    return `Total Reps: ${totalReps}, Total Distance: ${totalDist} meters`;
   }
 }
 
