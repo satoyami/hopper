@@ -1,7 +1,7 @@
 const should = require('chai').should();
 const Workout = require('../workoutModel');
 
-describe('Workout model class', () => {
+describe('Workout Data Model Class', () => {
   const amanda = {
     name: 'Amanda',
     description: '9, 7 and 5 reps of muscle-ups and snatches (135/95lbs)',
@@ -35,8 +35,8 @@ describe('Workout model class', () => {
     it('has averageTime property', () => {
       should.exist(wm.averageTime);
     });
-    it('has averageTime property', () => {
-      should.not.exist(wm.timeCap);
+    it('has timeCap property', () => {
+      should.exist(wm.timeCap);
     });
     it('has movements property', () => {
       should.exist(wm.movements);

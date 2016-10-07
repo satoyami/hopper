@@ -9,7 +9,7 @@ const hopper = new Hopper();
 hopper.spin().then((result) => {
   let wkt = new Workout(result);
   console.log('--------------');
-  console.log(`workout picked: ${result.name}`);
+  console.log(`workout picked: ${wkt.name}`);
   console.log(wkt);
   console.log(`Total reps: ${wkt.getReps()}`);
 });

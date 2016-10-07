@@ -5,7 +5,7 @@ const workouts = require('./workouts');
 const fs = require('fs');
 const picks = require('./pick.json');
 
-const totalWorkouts = Object.keys(workouts).length;
+const totalWorkouts = workouts.length;
 
 class Hopper {
   get TYPE() { return 'Hopper'}
@@ -28,7 +28,7 @@ class Hopper {
           this._storeSelection(`{ "data": [${previousPicks}] }`);
           return workouts[picked];
         }
-      );
+      ).catch( err => console.log(err) );
   }
 
   _storeSelection(pick) {
