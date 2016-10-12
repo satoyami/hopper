@@ -1,7 +1,7 @@
 const _ = require('lodash');
 const moment = require('moment');
 const Promise = require('bluebird');
-const workouts = require('./workouts');
+const workouts = require('./data/girls');
 const fs = require('fs');
 const picks = require('./pick.json');
 

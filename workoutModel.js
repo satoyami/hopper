@@ -37,7 +37,7 @@ class Workout {
     this.movements       = params.movements || [];
     //TODO breakdown timecapped workouts - (timecap / (time per movement * movements))
     this.repScheme       = params.repScheme || []; // rep per round breakdown; separate distance
-    this.distance        = params.distance || []; // distance per round
+    this.distance        = params.distance || 0; // distance per round
     this.roundMultiplier = params.roundMultiplier || 0;
     this.weights         = params.weights || {};
     this.linksToMovement = params.linksToMovement || [];

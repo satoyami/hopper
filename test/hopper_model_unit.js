@@ -1,6 +1,6 @@
 const should = require('chai').should();
 const Hopper = require('../hopper');
-const workouts = require('../workouts');
+const workouts = require('../data/girls');
 
 describe('Hopper Class', () => {
 

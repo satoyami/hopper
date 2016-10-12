@@ -2,7 +2,6 @@
  * workout storage
  * to be replaced by db service
 */
-const _ = require('lodash');
 const moment = require('moment');
 
 module.exports = [
