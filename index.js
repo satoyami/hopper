@@ -1,8 +1,8 @@
 const _ = require('lodash');
 const Hopper = require('./hopper');
-const workouts = require('./data/girls');
+// const workouts = require('./data/girls');
 const Workout = require('./workoutModel');
-const moment = require('moment');
+// const moment = require('moment');
 
 const hopper = new Hopper();
 
