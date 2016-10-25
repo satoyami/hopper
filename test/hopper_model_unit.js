@@ -5,7 +5,7 @@ const workouts = require('../data/girls');
 describe('Hopper Class', () => {
 
   describe('#spin',() => {
-    let hopper = new Hopper();
+    const hopper = new Hopper();
     let response;
 
     before(() => {
@@ -30,8 +30,61 @@ describe('Hopper Class', () => {
     });
   });
 
+  describe('#selectByName', () => {
+    const hopper = new Hopper();
+    let namedWorkout;
+    let selectedWorkoutResult;
+
+    context('valid name', () => {
+      before(() => {
+        namedWorkout = 'Amanda';
+        return hopper.selectByName(namedWorkout).then(
+          (result) => {
+            selectedWorkoutResult = result;
+            return selectedWorkoutResult;
+          }
+        );
+      });
+
+      it('returns selected workout', () => {
+        selectedWorkoutResult.name.should.eql(namedWorkout);
+      });
+    });
+
+    context('invalid name', () => {
+      before(() => {
+        namedWorkout = 'WinniePooh';
+        return hopper.selectByName(namedWorkout).catch(
+          (result) => {
+            selectedWorkoutResult = result;
+            return selectedWorkoutResult;
+          }
+        );
+      });
+
+      it('returns error', () => {
+        selectedWorkoutResult.error.should.eql('invalid name');
+      });
+    });
+
+  });
+
+  describe('#selectByMovement', () => {
+    const hopper = new Hopper();
+    const movement = 'deadlifts';
+    let selectWorkoutResult;
+
+    before(() => {
+      selectedWorkoutResult = hopper.selectByMovement(movement);
+    });
+
+    it(`returns ${movement} workouts`, () => {
+      selectWorkoutResult.length.should.eql(5);
+    });
+  });
+
   describe('#_getRandomNum',() => {
-    let hopper = new Hopper();
+    const hopper = new Hopper();
     const list = [1,2,3];
     let response;
 
@@ -55,7 +108,7 @@ describe('Hopper Class', () => {
   });
 
   describe('#_trimPicks',() => {
-    let hopper = new Hopper();
+    const hopper = new Hopper();
     let list;
     let response;
 

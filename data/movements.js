@@ -1,5 +1,6 @@
 /**
  * Movement reference
+ * provide examples of movements
  */
 module.exports = [
   {

@@ -31,6 +31,24 @@ class Hopper {
       ).catch( err => console.log(err) );
   }
 
+  selectByName(name){
+    return new Promise((resolve,reject) => {
+      return _.find(workouts, (wkt) => {
+        if(wkt.name === name) {
+          return resolve(wkt);
+        }else{
+          return reject({error: 'invalid name'});
+        }
+      });
+    });
+  }
+
+  selectByMovement(movement){
+    return _.filter(workouts, (wkt) => {
+      return _.includes(wkt.movements, movement);
+    });
+  }
+
   _storeSelection(pick) {
     fs.writeFile("./pick.json", pick, function(err) {
         if(err) throw err;
