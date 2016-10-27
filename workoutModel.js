@@ -1,5 +1,6 @@
 const _ = require('lodash');
 const moment = require('moment');
+const warmups = require('./data/warmups');
 
 const props = {
   name: 'name',
@@ -43,10 +44,20 @@ class Workout {
     this.linksToMovement = params.linksToMovement || [];
     this.categories      = params.categories || [];
     this.modality        = params.modality || [];
-    this.warmUps         = params.warmUps || [];
+    this.warmUps         = this.populateWarmUps(this.movements) || [];
     this.date            = params.date || moment().format('YYYY-MM-DD_HH:MM:ss_dddd');
   }
-
+  populateWarmUps(movements) {
+    let warmupMovements = [];
+    _.forEach(movements, (mvmt) => {
+      _.forEach(warmups, (warmup) => {
+        if(_.includes(warmup.forMovements, mvmt)) {
+          warmupMovements.push(warmup.name);
+        }
+      });
+    });
+    return warmupMovements;
+  }
   /**
    * get total reps of all movements
    *

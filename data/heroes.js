@@ -18,7 +18,6 @@ module.exports = [
     weights: {},
     linksToMovement: ['http://wodwell.com/wod/amanda/'],
     categories: ['gymanastics','olympic-lifting','barbell','rings','couplet'],
-    warmUps: ['kitchen-sink-stretch','shoulder-pass-throughs','air-squat','banded-OH-extension'],
   },
   {
     name: 'Alexander',
@@ -31,6 +30,5 @@ module.exports = [
     weights: {},
     linksToMovement: ['http://wodwell.com/wod/amanda/'],
     categories: ['gymanastics','olympic-lifting','barbell','rings','couplet'],
-    warmUps: ['kitchen-sink-stretch','shoulder-pass-throughs','air-squat','banded-OH-extension'],
   }
 ];

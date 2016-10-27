@@ -1,5 +1,7 @@
+const _ = require('lodash');
 const should = require('chai').should();
 const Hopper = require('../hopper');
+const WorkoutModel = require('../workoutModel');
 const workouts = require('../data/girls');
 
 describe('Hopper Class', () => {
@@ -71,15 +73,21 @@ describe('Hopper Class', () => {
 
   describe('#selectByMovement', () => {
     const hopper = new Hopper();
-    const movement = 'deadlifts';
-    let selectWorkoutResult;
+    const movement = 'push-up';
+    let selectedWorkoutResult;
 
     before(() => {
       selectedWorkoutResult = hopper.selectByMovement(movement);
     });
 
     it(`returns ${movement} workouts`, () => {
-      selectWorkoutResult.length.should.eql(5);
+      selectedWorkoutResult.length.should.eql(4);
+    });
+
+    it(`returns workouts with ${movement} in movements`, () => {
+      _.each(selectedWorkoutResult, (selected) => {
+        _.includes(selected.movements, movement).should.eql(true);
+      });
     });
   });
 

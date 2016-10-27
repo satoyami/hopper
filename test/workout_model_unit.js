@@ -1,3 +1,4 @@
+const _ = require('lodash');
 const should = require('chai').should();
 const Workout = require('../workoutModel');
 
@@ -13,7 +14,7 @@ describe('Workout Data Model Class', () => {
     weights: {snatch: '135/95'},
     linksToMovement: ['http://wodwell.com/wod/amanda/'],
     categories: ['gymanastics','olympic-lifting','barbell','rings','couplet'],
-    warmUps: ['kitchen-sink-stretch','shoulder-pass-throughs','air-squat','banded-OH-extension']
+    // warmUps: ['kitchen-sink-stretch','shoulder-pass-throughs','air-squat','banded-OH-extension']
   };
 
   describe('initialization',() => {
@@ -23,6 +24,9 @@ describe('Workout Data Model Class', () => {
       wm = new Workout(amanda);
     });
 
+    it('returns workout model', () => {
+      wm.TYPE.should.eql('Workout');
+    });
     it('has name property', () => {
       wm.name.should.eql('Amanda');
     });
@@ -56,8 +60,13 @@ describe('Workout Data Model Class', () => {
     it('has categories property', () => {
       should.exist(wm.categories);
     });
-    it('has warmUps property', () => {
-      should.exist(wm.warmUps);
+    it('has 5 warm-ups', () => {
+      wm.warmUps.length.should.eql(5);
+      wm.warmUps.should.eql(['ankle-flexion',
+     'hip-extension',
+     'thoracic-spine-extension',
+     'kitchen-sink-stretch',
+     'shoulder-pass-throughs'])
     });
     it('has date property', () => {
       should.exist(wm.date);
