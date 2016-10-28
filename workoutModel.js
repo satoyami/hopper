@@ -47,6 +47,9 @@ class Workout {
     this.warmUps         = this.populateWarmUps(this.movements) || [];
     this.date            = params.date || moment().format('YYYY-MM-DD_HH:MM:ss_dddd');
   }
+
+  // TODO add categories by movement lookup
+
   populateWarmUps(movements) {
     let warmupMovements = [];
     _.forEach(movements, (mvmt) => {
