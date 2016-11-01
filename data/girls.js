@@ -14,10 +14,9 @@ module.exports = [
     repScheme: [9,7,5],
     roundMultiplier: 2,
     weights: {snatch: '135/95'},
-    linksToMovement: ['http://wodwell.com/wod/amanda/'],
+    // linksToMovement: ['http://wodwell.com/wod/amanda/'],
     categories: ['gymanastics','olympic-lifting','barbell','rings','couplet'],
-    // // warmUps: ['kitchen-sink-stretch','shoulder-pass-throughs','air-squat','banded-OH-extension'],
-    modality: ['couplet']
+    // warmUps: ['kitchen-sink-stretch','shoulder-pass-throughs','air-squat','banded-OH-extension']
   },
   {
     name: 'Angie',
@@ -28,11 +27,10 @@ module.exports = [
     repScheme: [100,100,100,100],
     roundMultiplier: 1,
     weights: {},
-    linksToMovement: ['http://wodwell.com/wod/angie/'],
+    // linksToMovement: ['http://wodwell.com/wod/angie/'],
     categories: ['gymanastics','pull-up'],
     // warmUps: [],
-    date: moment().format('YYYY-MM-DD_HH:MM:ss_dddd'),
-    modality: ['quadlet']
+    date: moment().format('YYYY-MM-DD_HH:MM:ss_dddd')
   },
   {
     name: 'Barbara',
@@ -43,11 +41,10 @@ module.exports = [
     repScheme: [20,30,40,50],
     roundMultiplier: 5,
     weights: {},
-    linksToMovement: ['http://wodwell.com/wod/barbara/'],
+    // linksToMovement: ['http://wodwell.com/wod/barbara/'],
     categories: ['gymanastics','pull-up','push-ups','sit-ups','air-squats'],
     // warmUps: [],
-    date: moment().format('YYYY-MM-DD_HH:MM:ss_dddd'),
-    modality: ['quadlet']
+    date: moment().format('YYYY-MM-DD_HH:MM:ss_dddd')
   },
   {
     name: 'Chelsea',
@@ -59,11 +56,11 @@ module.exports = [
     repScheme: [5,10,15],
     roundMultiplier: 1,
     weights: {},
-    linksToMovement: ['http://wodwell.com/wod/chelsea/'],
+    // linksToMovement: ['http://wodwell.com/wod/chelsea/'],
     categories: ['pull-ups', 'push-ups', 'air-squats','gymnastics'],
     // warmUps: ['kitchen-sink-stretch','shoulder-pass-throughs','air-squat','banded-OH-extension'],
     date: moment().format('YYYY-MM-DD_HH:MM:ss_dddd'),
-    modality: ['triplet']
+    
   },
   {
     name: 'Cindy',
@@ -75,11 +72,10 @@ module.exports = [
     repScheme: [5,10,15],
     roundMultiplier: 1,
     weights: {},
-    linksToMovement: ['http://wodwell.com/wod/cindy/'],
+    // linksToMovement: ['http://wodwell.com/wod/cindy/'],
     categories: ['gymnastics','bodyweight','pull-ups','push-ups','air-squats','monostructural'],
     // warmUps: ['kitchen-sink-stretch','shoulder-pass-throughs','air-squat','banded-OH-extension'],
-    date: moment().format('YYYY-MM-DD_HH:MM:ss_dddd'),
-    modality: ['triplet']
+    date: moment().format('YYYY-MM-DD_HH:MM:ss_dddd')
   },
   {
     name: 'Diane',
@@ -90,11 +86,10 @@ module.exports = [
     repScheme: [21,15,9],
     roundMultiplier: 2,
     weights: {deadlift: 225 },
-    linksToMovement: ['http://wodwell.com/wod/diane/'],
+    // linksToMovement: ['http://wodwell.com/wod/diane/'],
     categories: ['deadlifts','handstand-push-ups','gymnastics'],
     // warmUps: ['KB deadlifts','kitchen-sink-stretch','shoulder-pass-throughs','air-squat','banded-OH-extension'],
-    date: moment().format('YYYY-MM-DD_HH:MM:ss_dddd'),
-    modality: ['couplet']
+    date: moment().format('YYYY-MM-DD_HH:MM:ss_dddd')
   },
   {
     name: 'Elizabeth',
@@ -105,11 +100,10 @@ module.exports = [
     repScheme: [21,15,9],
     roundMultiplier: 2,
     weights: {'squat-cleans': '135/95' },
-    linksToMovement: ['http://wodwell.com/wod/elizabeth/'],
+    // linksToMovement: ['http://wodwell.com/wod/elizabeth/'],
     categories: ['squat cleans','ring-dips','gymanastics'],
     // warmUps: ['KB deadlifts','kitchen-sink-stretch','shoulder-pass-throughs','air-squat','banded-OH-extension'],
-    date: moment().format('YYYY-MM-DD_HH:MM:ss_dddd'),
-    modality: ['couplet']
+    date: moment().format('YYYY-MM-DD_HH:MM:ss_dddd')
   },
   {
     name: 'Eva',
@@ -121,11 +115,10 @@ module.exports = [
     distance: 800,
     roundMultiplier: 5,
     weights: {'kettlebell': '70/53'},
-    linksToMovement: ['http://wodwell.com/wod/eva/'],
+    // linksToMovement: ['http://wodwell.com/wod/eva/'],
     categories: ['run','kettlebell-swing','pull-up','monostructural','gymanastics'],
     // warmUps: ['kitchen-sink-stretch','shoulder-pass-throughs','air-squat','banded-OH-extension'],
-    date: moment().format('YYYY-MM-DD_HH:MM:ss_dddd'),
-    modality: ['triplet']
+    date: moment().format('YYYY-MM-DD_HH:MM:ss_dddd')
   },
   {
     name: 'Fran',
@@ -136,11 +129,10 @@ module.exports = [
     repScheme: [21,15,9],
     roundMultiplier: 2,
     weights: {thruster: '95/65'},
-    linksToMovement: ['http://wodwell.com/wod/fran/'],
+    // linksToMovement: ['http://wodwell.com/wod/fran/'],
     categories: ['gymanastics','pull-up','gymanastics'],
     // warmUps: ['kitchen-sink-stretch','shoulder-pass-throughs','air-squat','banded-OH-extension'],
-    date: moment().format('YYYY-MM-DD_HH:MM:ss_dddd'),
-    modality: ['couplet']
+    date: moment().format('YYYY-MM-DD_HH:MM:ss_dddd')
   },
   {
     name: 'Grace',
@@ -151,11 +143,10 @@ module.exports = [
     repScheme: [30],
     roundMultiplier: 1,
     weights: {'clean-and-jerk': '135/95'},
-    linksToMovement: ['http://wodwell.com/wod/grace/'],
+    // linksToMovement: ['http://wodwell.com/wod/grace/'],
     categories: ['barbell', 'clean-and-jerk'],
     // warmUps: ['kitchen-sink-stretch','shoulder-pass-throughs','air-squat','banded-OH-extension'],
-    date: moment().format('YYYY-MM-DD_HH:MM:ss_dddd'),
-    modality: ['single']
+    date: moment().format('YYYY-MM-DD_HH:MM:ss_dddd')
   },
   {
     name: 'Gwen',
@@ -166,11 +157,10 @@ module.exports = [
     repScheme: [15,12,9],
     roundMultiplier: 1,
     weights: {},
-    linksToMovement: ['http://wodwell.com/wod/gwen/'],
+    // linksToMovement: ['http://wodwell.com/wod/gwen/'],
     categories: ['barbell', 'clean-and-jerk'],
     // warmUps: ['kitchen-sink-stretch','shoulder-pass-throughs','air-squat','banded-OH-extension'],
-    date: moment().format('YYYY-MM-DD_HH:MM:ss_dddd'),
-    modality: ['single']
+    date: moment().format('YYYY-MM-DD_HH:MM:ss_dddd')
   },
   {
     name: 'Helen',
@@ -182,11 +172,10 @@ module.exports = [
     distance: 400,
     roundMultiplier: 3,
     weights: {'kettlebell': '53/35'},
-    linksToMovement: ['http://wodwell.com/wod/helen/'],
+    // linksToMovement: ['http://wodwell.com/wod/helen/'],
     categories: ['run','kettlebell-swing','pull-up','monostructural','gymanastics'],
     // warmUps: ['kitchen-sink-stretch','shoulder-pass-throughs','air-squat','banded-OH-extension'],
-    date: moment().format('YYYY-MM-DD_HH:MM:ss_dddd'),
-    modality: ['triplet']
+    date: moment().format('YYYY-MM-DD_HH:MM:ss_dddd')
   },
   {
     name: 'Isabel',
@@ -197,11 +186,11 @@ module.exports = [
     repScheme: [30],
     roundMultiplier: 1,
     weights: {snatch: '135/95'},
-    linksToMovement: ['http://wodwell.com/wod/isabel/'],
+    // linksToMovement: ['http://wodwell.com/wod/isabel/'],
     categories: ['barbell','snatch','power-snatch'],
     // warmUps: ['kitchen-sink-stretch','shoulder-pass-throughs','air-squat','banded-OH-extension'],
     date: moment().format('YYYY-MM-DD_HH:MM:ss_dddd'),
-    modality: ['single']
+    
   },
   {
     name: 'Jackie',
@@ -212,11 +201,10 @@ module.exports = [
     repScheme: [50,30],
     distance: 1000,
     weights: {thruster: '45'},
-    linksToMovement: ['http://wodwell.com/wod/jackie/'],
+    // linksToMovement: ['http://wodwell.com/wod/jackie/'],
     categories: ['barbell','snatch','monostructural'],
     // warmUps: ['kitchen-sink-stretch','shoulder-pass-throughs','air-squat','banded-OH-extension'],
-    date: moment().format('YYYY-MM-DD_HH:MM:ss_dddd'),
-    modality: ['triplet']
+    date: moment().format('YYYY-MM-DD_HH:MM:ss_dddd')
   },
   {
     name: 'Karen',
@@ -227,11 +215,10 @@ module.exports = [
     repScheme: [20],
     roundMultiplier: 1,
     weights: {thruster: '45'},
-    linksToMovement: ['http://wodwell.com/wod/jackie/'],
+    // linksToMovement: ['http://wodwell.com/wod/jackie/'],
     categories: ['wallball'],
     // warmUps: ['kitchen-sink-stretch','shoulder-pass-throughs','air-squat','banded-OH-extension'],
-    date: moment().format('YYYY-MM-DD_HH:MM:ss_dddd'),
-    modality: ['single']
+    date: moment().format('YYYY-MM-DD_HH:MM:ss_dddd')
   },
   {
     name: 'Kelly',
@@ -243,11 +230,10 @@ module.exports = [
     distance: 400,
     roundMultiplier: 5,
     weights: {'wallball': '20/14'},
-    linksToMovement: ['http://wodwell.com/wod/kelly/'],
+    // linksToMovement: ['http://wodwell.com/wod/kelly/'],
     categories: ['run','box-jump','wallballs','monostructural'],
     // warmUps: ['kitchen-sink-stretch','shoulder-pass-throughs','air-squat','banded-OH-extension'],
-    date: moment().format('YYYY-MM-DD_HH:MM:ss_dddd'),
-    modality: ['triplet']
+    date: moment().format('YYYY-MM-DD_HH:MM:ss_dddd')
   },
   {
     name: 'Linda',
@@ -258,11 +244,10 @@ module.exports = [
     repScheme: [10,9,8,7,6,5,4,3,2,1],
     roundMultiplier: 3,
     weights: {deadlift: 'bodyweight',bench: 'bodyweight', clean: 'bodyweight'},
-    linksToMovement: ['http://wodwell.com/wod/linda/'],
+    // linksToMovement: ['http://wodwell.com/wod/linda/'],
     categories: ['barbell','deadlift','bench','clean','3-bars-of-death'],
     // warmUps: ['kitchen-sink-stretch','shoulder-pass-throughs','air-squat','banded-OH-extension'],
-    date: moment().format('YYYY-MM-DD_HH:MM:ss_dddd'),
-    modality: ['triplet']
+    date: moment().format('YYYY-MM-DD_HH:MM:ss_dddd')
   },
   {
     name: 'Lynne',
@@ -273,11 +258,10 @@ module.exports = [
     repScheme: [],
     roundMultiplier: 5,
     weights: {bench: 'bodyweight'},
-    linksToMovement: ['http://wodwell.com/wod/lynne/'],
+    // linksToMovement: ['http://wodwell.com/wod/lynne/'],
     categories: ['bench','pull-ups'],
     // warmUps: ['kitchen-sink-stretch','shoulder-pass-throughs','air-squat','banded-OH-extension'],
-    date: moment().format('YYYY-MM-DD_HH:MM:ss_dddd'),
-    modality: ['couplet']
+    date: moment().format('YYYY-MM-DD_HH:MM:ss_dddd')
   },
   {
     name: 'Mary',
@@ -288,11 +272,10 @@ module.exports = [
     movements: ['handstand-push-up','pistol-squat','pull-up'],
     repScheme: [5,10,15],
     weights: {},
-    linksToMovement: ['http://wodwell.com/wod/mary/'],
+    // linksToMovement: ['http://wodwell.com/wod/mary/'],
     categories: ['push-ups','pistol-squat','pull-up','gymanastics'],
     // warmUps: ['kitchen-sink-stretch','shoulder-pass-throughs','air-squat','banded-OH-extension'],
-    date: moment().format('YYYY-MM-DD_HH:MM:ss_dddd'),
-    modality: ['triplet']
+    date: moment().format('YYYY-MM-DD_HH:MM:ss_dddd')
   },
   {
     name: 'Nancy',
@@ -304,10 +287,9 @@ module.exports = [
     distance: 400,
     roundMultiplier: 5,
     weights: {ohs: '95/65'},
-    linksToMovement: ['http://wodwell.com/wod/nancy/'],
+    // linksToMovement: ['http://wodwell.com/wod/nancy/'],
     categories: ['run','overhead-squat','monostructural'],
     // warmUps: ['kitchen-sink-stretch','shoulder-pass-throughs','air-squat','banded-OH-extension'],
-    date: moment().format('YYYY-MM-DD_HH:MM:ss_dddd'),
-    modality: ['couplet']
+    date: moment().format('YYYY-MM-DD_HH:MM:ss_dddd')
   }
 ];

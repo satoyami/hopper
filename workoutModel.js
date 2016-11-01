@@ -41,9 +41,8 @@ class Workout {
     this.distance        = params.distance || 0; // distance per round
     this.roundMultiplier = params.roundMultiplier || 0;
     this.weights         = params.weights || {};
-    this.linksToMovement = params.linksToMovement || [];
+    this.linksToMovement = params.linksToMovement || `http://wodwell.com/wod/${this.name.toLowerCase()}` || [];
     this.categories      = params.categories || [];
-    this.modality        = params.modality || [];
     this.warmUps         = this.populateWarmUps(this.movements) || [];
     this.date            = params.date || moment().format('YYYY-MM-DD_HH:MM:ss_dddd');
   }

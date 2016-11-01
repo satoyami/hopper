@@ -16,7 +16,7 @@ module.exports = [
     distance: 400,
     // roundMultiplier: ,
     weights: {},
-    linksToMovement: ['http://wodwell.com/wod/amanda/'],
+    linksToMovement: ['http://wodwell.com/wod/21-guns/'],
     categories: ['gymanastics','olympic-lifting','barbell','rings','couplet'],
   },
   {
@@ -27,8 +27,20 @@ module.exports = [
     movements: ['back-squat','power-clean'],
     repScheme: [31,12],
     roundMultiplier: 5,
-    weights: {},
-    linksToMovement: ['http://wodwell.com/wod/amanda/'],
+    weights: {'back-squat': '135/95','power-clean':'185/135'},
     categories: ['gymanastics','olympic-lifting','barbell','rings','couplet'],
-  }
+  },
+  {
+    name: 'DT',
+    description: '5 rounds 12 deadlifts, 9 hang-power-cleans, 6 push-jerks',
+    timeScheme: 'For Time',
+    averageTime: '6 minutes',
+    timeCap: false,
+    movements: ['deadlifts','hang-power-cleans','push-jerks'],
+    repScheme: [12,9,6],
+    distance: 0,
+    roundMultiplier: 5,
+    weights: {barbell: '155/105'},
+    categories: ['olympic-lifting','barbell'],
+  },
 ];

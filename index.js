@@ -1,10 +1,11 @@
 const _ = require('lodash');
 const Hopper = require('./hopper');
-// const workouts = require('./data/girls');
 const Workout = require('./workoutModel');
-// const moment = require('moment');
 
 const hopper = new Hopper();
+const buckets = ['girls','heroes'];
+console.log('Workout options:')
+
 
 hopper.spin().then((result) => {
   let wkt = new Workout(result);
