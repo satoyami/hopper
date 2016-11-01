@@ -8,10 +8,10 @@ var util = require('util');
 const hopper = new Hopper();
 const buckets = ['girls','heroes'];
 console.log('Workout options:');
-process.stdin.on('data', function (text) {
+process.stdin.on('data', (text) => {
   console.log('picked:', util.inspect(text));
   if (text === 'quit\n') {
-    done();
+    process.exit();
   }else if (text === 'spin\n'){
     spin();
   }else if (/\d+/.test(text)) {
@@ -19,6 +19,9 @@ process.stdin.on('data', function (text) {
   }else{
     console.log('no selection');
   }
+});
+process.stdin.on('end', () => {
+  console.log('Program end!');
 });
 
 function spin() {
