@@ -13,8 +13,7 @@ describe('Workout Data Model Class', () => {
     roundMultiplier: 2,
     weights: {snatch: '135/95'},
     linksToMovement: ['http://wodwell.com/wod/amanda/'],
-    categories: ['gymanastics','olympic-lifting','barbell','rings','couplet'],
-    // warmUps: ['kitchen-sink-stretch','shoulder-pass-throughs','air-squat','banded-OH-extension']
+    categories: ['gymanastics','olympic-lifting','barbell','rings','couplet']
   };
 
   describe('initialization',() => {
