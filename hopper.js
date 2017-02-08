@@ -1,5 +1,4 @@
 const _ = require('lodash');
-const moment = require('moment');
 const Promise = require('bluebird');
 const workouts = require('./data/girls');
 const fs = require('fs');
@@ -11,6 +10,10 @@ class Hopper {
   get TYPE() { return 'Hopper'}
   get description() { return 'random workout selector'}
 
+  /**
+   * Selects random workout
+   * @returns {Promise.<TResult>}
+   */
   spin() {
     let previousPicks = [];
     return this._trimPicks(picks).then(
@@ -28,9 +31,13 @@ class Hopper {
           this._storeSelection(`{ "data": [${previousPicks}] }`);
           return workouts[picked];
         }
-      ).catch( err => console.log(err) );
+      ).catch((err) => console.log(err) );
   }
 
+  /**
+   * Outputs workout by name
+   * @param {string} name
+   */
   selectByName(name){
     return new Promise((resolve,reject) => {
       return _.find(workouts, (wkt) => {
@@ -43,12 +50,22 @@ class Hopper {
     });
   }
 
+  /**
+   * Outputs workout by movement category
+   * @param movement
+   * @returns {Array}
+   */
   selectByMovement(movement){
     return _.filter(workouts, (wkt) => {
       return _.includes(wkt.movements, movement);
     });
   }
 
+  /**
+   * Update pick.json file to keep track of last selected
+   * @param pick
+   * @returns {file}
+   */
   _storeSelection(pick) {
     fs.writeFile("./pick.json", pick, function(err) {
         if(err) throw err;
@@ -56,9 +73,14 @@ class Hopper {
     });
   }
 
+  /**
+   * Pick a randomly selected number not already selected
+   * @param list
+   * @returns {Promise}
+   */
   _getRandomNum(list) {
-    let randomNum = Math.floor(Math.random() * totalWorkouts);
-    let uniqList = _.uniq(list);
+    const randomNum = Math.floor(Math.random() * totalWorkouts);
+    const uniqList = _.uniq(list);
     return new Promise((resolve,reject) => {
       if(_.includes(uniqList, randomNum)){
         return resolve(this._getRandomNum(list));
@@ -68,6 +90,12 @@ class Hopper {
       }
     });
   }
+
+  /**
+   * Truncate previously picked number array
+   * @param {number[]} list Array of numbers from previously selected
+   * @returns {Promise} truncated list
+   */
 
   _trimPicks(list) {
     let half = totalWorkouts/2;
