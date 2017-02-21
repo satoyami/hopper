@@ -44,6 +44,7 @@ server.route({
       hopper.spin().then((result) => {
         const wkt = new Workout(result);
         wod.name = wkt.name;
+        wod.media = wkt.linksToMovement;
         wod.body = JSON.stringify(wkt);
         wod.reps = wkt.getReps();
         reply.view('index', {
