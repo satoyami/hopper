@@ -12,7 +12,7 @@ class Hopper {
 
   /**
    * Selects random workout
-   * @returns {Promise.<TResult>}
+   * @returns {Promise}
    */
   spin() {
     let previousPicks = [];
@@ -20,7 +20,7 @@ class Hopper {
         (list) => {
           previousPicks = list;
           return this._getRandomNum(list);
-        }
+        } 
       ).then(
         (num) => {
           previousPicks.push(num);
