@@ -1,6 +1,6 @@
 const _ = require('lodash');
 const should = require('chai').should();
-const Workout = require('../workoutModel');
+const Workout = require('../models/workoutModel');
 
 describe('Workout Data Model Class', () => {
   const amanda = {

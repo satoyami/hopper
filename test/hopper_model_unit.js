@@ -1,7 +1,7 @@
 const _ = require('lodash');
 const should = require('chai').should();
 const Hopper = require('../hopper');
-const WorkoutModel = require('../workoutModel');
+const WorkoutModel = require('../models/workoutModel');
 const workouts = require('../data/girls');
 
 describe('Hopper Class', () => {

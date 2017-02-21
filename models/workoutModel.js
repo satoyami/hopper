@@ -1,6 +1,6 @@
 const _ = require('lodash');
 const moment = require('moment');
-const warmups = require('./data/warmups');
+const warmups = require('./../data/warmups');
 
 const props = {
   name: 'name',
@@ -36,20 +36,20 @@ class Workout {
     this.timeCap         = params.timeCap || false; // boolean
     this.averageTime     = params.averageTime || '5min';
     this.movements       = params.movements || [];
-    //TODO breakdown timecapped workouts - (timecap / (time per movement * movements))
+    //TODO breakdown timecapped workouts - (timecap / (time per movement * movements)) | elite | scaled
     this.repScheme       = params.repScheme || []; // rep per round breakdown; separate distance
     this.distance        = params.distance || 0; // distance per round
     this.roundMultiplier = params.roundMultiplier || 0;
     this.weights         = params.weights || {};
     this.linksToMovement = params.linksToMovement || `http://wodwell.com/wod/${this.name.toLowerCase()}` || [];
     this.categories      = params.categories || [];
-    this.warmUps         = this.populateWarmUps(this.movements) || [];
+    this.warmUps         = this._populateWarmUps(this.movements) || [];
     this.date            = params.date || moment().format('YYYY-MM-DD_HH:MM:ss_dddd');
   }
 
   // TODO add categories by movement lookup
 
-  populateWarmUps(movements) {
+  _populateWarmUps(movements) {
     let warmupMovements = [];
     _.forEach(movements, (mvmt) => {
       _.forEach(warmups, (warmup) => {
