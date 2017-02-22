@@ -33,7 +33,7 @@ server.views({
 
 server.connection({
   host: '127.0.0.1',
-  port: Number(process.argv[2] || 8080)
+  port: 5555
 });
 
 server.route({

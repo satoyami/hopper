@@ -1,8 +1,8 @@
-/*
- * Description of warmups
- * and mobility work
- * for specific
- * movements and modalities
+/**
+ * List of warmup movements
+ * to be referenced by each
+ * workout
+ * 
  */
 
 module.exports = [

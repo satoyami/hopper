@@ -7,42 +7,44 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <style>
+        .fillbox {
+            background-color: #0b97c4;
+        }
+        #content {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <div class="mdl-card">
-        <div class="mdl-card__title">
-            {{workout.name}}
-        </div>
-        <div class="mdl-card__media">
-            {{workout.media}}
-        </div>
-        <div class="mdl-card__supporting-text">
-            {{workout.body}}
-        </div>
-        <div class="mdl-card__actions">
-            {{workout.reps}}
-        </div>
-    </div>
     <div class="mdl-grid">
-        <div class="mdl-cell mdl-cell--1-col">
-            {{workout.name}}
+        <div class="mdl-cell mdl-cell--1-col fillbox">
+            filler
         </div>
-        <div class="mdl-cell mdl-cell--6-col">
-            {{workout.body}}
+        <div id="content" class="mdl-cell mdl-cell--6-col mdl-cell--middle">
+            <div class="mdl-card">
+                <div class="mdl-card__title">
+                    {{workout.name}}
+                </div>
+                <div class="mdl-card__media">
+                    <a href="{{workout.media}}">
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                            {{workout.media}}
+                        </button>
+                    </a>
+                </div>
+                <div class="mdl-card__supporting-text">
+                    <!-- Parse list of details -->
+                    {{workout.body}}
+                </div>
+                <div class="mdl-card__actions">
+                    {{workout.reps}}
+                </div>
+            </div>
         </div>
-        <div class="mdl-cell mdl-cell--1-col">
-            {{workout.reps}}
+        <div class="mdl-cell mdl-cell--1-col fillbox">
+            filler
         </div>
     </div>
-    <!--<h1>Hello {{workout.name}}</h1>-->
-    <!--<div>-->
-        <!--<span>Name: {{workout.name}}</span>-->
-    <!--</div>-->
-    <!--<div>-->
-        <!--<span>Detail: {{workout.body}}</span>-->
-    <!--</div>-->
-    <!--<div>-->
-        <!--<span>Total Reps: {{workout.reps}}</span>-->
-    <!--</div>-->
 </body>
 </html>

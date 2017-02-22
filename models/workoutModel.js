@@ -21,7 +21,7 @@ class Workout {
   get PropNames() { return Object.keys(props); }
 
   /**
-   * @constructor
+   * Constructor
    * @param {Object} params
    */
   constructor(params) {
@@ -48,7 +48,10 @@ class Workout {
   }
 
   // TODO add categories by movement lookup
-
+  /**
+   * reference movement specific warmups
+   * 
+   */
   _populateWarmUps(movements) {
     let warmupMovements = [];
     _.forEach(movements, (mvmt) => {
@@ -62,7 +65,7 @@ class Workout {
   }
   /**
    * get total reps of all movements
-   *
+   * calculated from repScheme
    * @returns {number}
    */
   getReps() {
