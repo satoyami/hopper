@@ -4,3 +4,4 @@ node_modules/
 out/
 data/rowing_interval_table.jpg
 pick.json
+npm-debug.log
