@@ -36,27 +36,54 @@ server.connection({
   port: 5555
 });
 
+function getWorkoutByName(request, reply) {
+  const name = request.params.name.toLowerCase();
+  let wod = {};
+  hopper.selectByName(name).then((result) => {
+    console.log(name);
+    const wkt = new Workout(result);
+    wod.name = wkt.name;
+    wod.media = wkt.linksToMovement;
+    wod.body = JSON.stringify(wkt);
+    wod.reps = wkt.getReps();
+    // reply.view('index.html', {title: name, workout: wod});
+    reply(wod);
+  }).catch(err => reply(err));
+}
+
+function getRandomGirlsWorkout(request,reply) {
+  // console.log(request.headers);
+  let wod = {};
+  hopper.spin().then((result) => {
+    const wkt = new Workout(result);
+    wod.name = wkt.name;
+    wod.media = wkt.linksToMovement;
+    wod.body = JSON.stringify(wkt);
+    wod.reps = wkt.getReps();
+    reply.view('index', { title: 'Hapi', workout: wod });
+    // reply(wod);
+  }).catch(err => reply(err));
+}
+
 server.route({
-    path: '/',
+    path: '/{name}',
     method:'GET',
-    handler: (request,reply) => {
-      let wod = {};
-      hopper.spin().then((result) => {
-        const wkt = new Workout(result);
-        wod.name = wkt.name;
-        wod.media = wkt.linksToMovement;
-        wod.body = JSON.stringify(wkt);
-        wod.reps = wkt.getReps();
-        reply.view('index', {
-          title: 'Hapi',
-          workout: wod
-        });
-      });
-    }
+    handler: getWorkoutByName
   }
 );
+
+server.route({
+    path: '/randomgirls',
+    method:'GET',
+    handler: getRandomGirlsWorkout
+  }
+);
+
+
+
 
 server.start(function (err) {
   if (err) console.log(err);
   console.log('Server running at:', server.info.uri);
+  server.log('Server running at:', server.info.uri);
 });

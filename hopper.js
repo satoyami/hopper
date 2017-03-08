@@ -1,10 +1,10 @@
 const _ = require('lodash');
 const Promise = require('bluebird');
-const workouts = require('./data/girls');
+const workouts = require('./data/girls.json');
 const fs = require('fs');
-const picks = require('./pick.json');
+const picks = [12,2,4,7,5];
 
-const totalWorkouts = workouts.length;
+const totalWorkouts = workouts.data.length;
 
 class Hopper {
   get TYPE() { return 'Hopper'}
@@ -16,11 +16,12 @@ class Hopper {
    */
   spin() {
     let previousPicks = [];
-    return this._trimPicks(picks).then(
+    return new Promise((resolve, reject) => {
+      this._trimPicks(picks).then(
         (list) => {
           previousPicks = list;
           return this._getRandomNum(list);
-        } 
+        }
       ).then(
         (num) => {
           previousPicks.push(num);
@@ -28,10 +29,15 @@ class Hopper {
         }
       ).then(
         (picked) => {
-          this._storeSelection(`{ "data": [${previousPicks}] }`);
-          return workouts[picked];
+          picks.push(picked);
+          return resolve(workouts.data[picked]);
         }
-      ).catch((err) => console.log(err) );
+      ).catch((err) => {
+          console.log(err);
+          reject(err);
+        } 
+      );
+    });
   }
 
   /**
@@ -40,13 +46,14 @@ class Hopper {
    */
   selectByName(name){
     return new Promise((resolve,reject) => {
-      return _.find(workouts, (wkt) => {
-        if(wkt.name === name) {
-          return resolve(wkt);
-        }else{
-          return reject({error: 'invalid name'});
-        }
+      const workoutByName = _.find(workouts.data, (wkt) => {
+        return wkt.name === name;
       });
+      if (workoutByName) {
+        return resolve(workoutByName);
+      } else {
+        return reject(`no workout found by name: ${name}`);
+      }
     });
   }
 
@@ -56,8 +63,16 @@ class Hopper {
    * @returns {Array}
    */
   selectByMovement(movement){
-    return _.filter(workouts, (wkt) => {
+    const filterWorkouts = _.filter(workouts.data, (wkt) => {
       return _.includes(wkt.movements, movement);
+    });
+    
+    return new Promise((resolve, reject) => {
+      if (filterWorkouts) {
+        resolve(filterWorkouts);
+      } else {
+        reject(`no workouts found for ${movement}`);
+      }
     });
   }
 
@@ -78,15 +93,15 @@ class Hopper {
    * @param list
    * @returns {Promise}
    */
-  _getRandomNum(list) {
+  _getRandomNum(list) { 
     const randomNum = Math.floor(Math.random() * totalWorkouts);
     const uniqList = _.uniq(list);
-    return new Promise((resolve,reject) => {
-      if(_.includes(uniqList, randomNum)){
-        return resolve(this._getRandomNum(list));
-      }else{
-        // console.log(`picked ${randomNum}`)
-        return resolve(randomNum);
+
+    return new Promise((resolve, reject) => {
+      if (!_.includes(uniqList, randomNum)) {
+        resolve(randomNum);
+      } else {
+        this._getRandomNum(list);
       }
     });
   }
@@ -98,12 +113,14 @@ class Hopper {
    */
 
   _trimPicks(list) {
-    let half = totalWorkouts/2;
+    const half = totalWorkouts/2;
     return new Promise((resolve,reject) => {
-      if(list.data.length < half){
-        return resolve(list.data);
+      // if (!_.isEmpty(list)) reject('picks list error');
+      
+      if(list.length < half){
+        resolve(list);
       }else{
-        return resolve(list.data.slice(-(half)));
+        resolve(list.slice(-(half)));
       }
     });
   }
