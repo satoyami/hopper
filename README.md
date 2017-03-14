@@ -15,11 +15,31 @@ features as well as a POC of generating workouts, in a future release,
 to later pass to machine learning API.
 
 ### Technologies:
-- Hapi.js: API framework
-- Node.js v6.6.0: js engine
-- Material Design Lite: Google's *bootstrap* library for 'look and feel'
-- Handlebars: HTML template engine
-- Database: TBD (Mongodb/Couchdb)
-- Caching: TBD (Redis)
-- Continuous Integration: [Codeship](http://www.codeship.com)
-- Testing: Mocha, Chai
+- [ ] Hapi.js: API framework
+    - [ ] breakout routes
+    - [ ] breakout handlers(controllers)
+    - [ ] breakout DAO
+    - [ ] add logging(Good/components)
+- [x] Node.js v6.6.0: js engine
+- [x] Material Design Lite: Google's *bootstrap* library for 'look and feel'
+- [x] Handlebars: HTML template engine
+- [ ] Data Models
+    - [x] Girls workouts
+    - [ ] Heroes workouts
+    - [ ] Daily WODs (some type of feed)
+    - [ ] other WOD generators
+    - [ ] report metrics
+- [ ] Database/DAO: TBD (Mongodb/Couchdb/RethinkDB)
+    - [ ] connect to DB
+    - [ ] upload data
+- [ ] Metrics reporting/tracking
+    - [ ] body weight
+    - [ ] diet (caloric intake)
+    - [ ] sleep (duration/quality)
+    - [ ] caloric expenditure
+    - [ ] blood markers
+    - [ ] hydration
+    - [ ] supplements
+- [ ] Caching: TBD (Redis)
+- [x] Continuous Integration: [Codeship](http://www.codeship.com)
+- [x] Testing: Mocha, Chai, Sinon

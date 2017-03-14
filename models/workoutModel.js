@@ -1,6 +1,6 @@
 const _ = require('lodash');
 const moment = require('moment');
-const warmups = require('./../data/warmups');
+const warmups = require('./../data/warmups.json');
 
 const props = {
   name: 'name',
@@ -55,7 +55,7 @@ class Workout {
   _populateWarmUps(movements) {
     let warmupMovements = [];
     _.forEach(movements, (mvmt) => {
-      _.forEach(warmups, (warmup) => {
+      _.forEach(warmups.data, (warmup) => {
         if(_.includes(warmup.forMovements, mvmt)) {
           warmupMovements.push(warmup.name);
         }

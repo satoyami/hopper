@@ -82,6 +82,7 @@ class Hopper {
    * @returns {file}
    */
   _storeSelection(pick) {
+    // replace with data from cookie
     fs.writeFile("./pick.json", pick, function(err) {
         if(err) throw err;
         return pick;
@@ -93,15 +94,22 @@ class Hopper {
    * @param list
    * @returns {Promise}
    */
-  _getRandomNum(list) { 
-    const randomNum = Math.floor(Math.random() * totalWorkouts);
-    const uniqList = _.uniq(list);
+  _getRandomNum(list) {
+    const wktArr = [];
+    let index = 0;
+    while(index < workouts.data.length) {
+      wktArr.push(index);
+      index++;
+    };
+    
+    const uniqList = _.difference( wktArr, _.uniq(list));
+    const randomNum = Math.floor(Math.random() * uniqList.length);
 
     return new Promise((resolve, reject) => {
-      if (!_.includes(uniqList, randomNum)) {
-        resolve(randomNum);
+      if (_.isNumber(randomNum)) {
+        resolve(uniqList[randomNum]);
       } else {
-        this._getRandomNum(list);
+        reject('[_getRandomNum] error generating random number');
       }
     });
   }

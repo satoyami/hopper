@@ -11,14 +11,6 @@ const Workout = require('./models/workoutModel');
 
 const hopper = new Hopper();
 
-// hopper.spin().then((result) => {
-//   let wkt = new Workout(result);
-//   console.log('--------------');
-//   console.log(`workout picked: ${wkt.name}`);
-//   console.log(wkt);
-//   console.log(`Total reps: ${wkt.getReps()}`);
-// });
-
 // PLUGINS
 server.register(Vision, function (err) {
   if (err) throw err;
@@ -60,8 +52,8 @@ function getRandomGirlsWorkout(request,reply) {
     wod.media = wkt.linksToMovement;
     wod.body = JSON.stringify(wkt);
     wod.reps = wkt.getReps();
-    reply.view('index', { title: 'Hapi', workout: wod });
-    // reply(wod);
+    // reply.view('index', { title: 'Hapi', workout: wod });
+    reply(wod);
   }).catch(err => reply(err));
 }
 

@@ -7,7 +7,7 @@ const WorkoutModel = require('../models/workoutModel');
 const workouts = require('../data/girls.json');
 
 describe('Hopper Class', () => {
-  // this.timeout(30000);
+  // mocha.timeout(30000);
 
   describe('#spin',() => {
     const hopper = new Hopper();
@@ -100,7 +100,7 @@ describe('Hopper Class', () => {
     });
   });
 
-  describe('#_getRandomNum',() => {
+  describe('#_getRandomNum', () => {
     const hopper = new Hopper();
     const list = [1,2,3,4,10,15,2,5,5];
     let response;
@@ -108,7 +108,6 @@ describe('Hopper Class', () => {
     before(() => {
       return hopper._getRandomNum(list).then(
         (result) => {
-          // console.log(result);
           response = result;
           return response;
         }
@@ -124,7 +123,8 @@ describe('Hopper Class', () => {
     });
 
     it('returns number not in list', () => {
-      _.includes(list, response).should.eql(false);
+      let uniqList = _.uniq(list);
+      _.includes(uniqList, response).should.eql(false);
     });
   });
 
