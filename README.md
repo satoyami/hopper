@@ -21,11 +21,12 @@ to later pass to machine learning API.
     - [ ] breakout DAO
     - [ ] add logging(Good/components)
 - [x] Node.js v6.6.0: js engine
+    - [x] *n* Nodejs version manager 2.1.0 
 - [x] Material Design Lite: Google's *bootstrap* library for 'look and feel'
 - [x] Handlebars: HTML template engine
 - [ ] Data Models
     - [x] Girls workouts
-    - [ ] Heroes workouts
+    - [x] Heroes workouts
     - [ ] Daily WODs (some type of feed)
     - [ ] other WOD generators
     - [ ] report metrics
@@ -42,4 +43,7 @@ to later pass to machine learning API.
     - [ ] supplements
 - [ ] Caching: TBD (Redis)
 - [x] Continuous Integration: [Codeship](http://www.codeship.com)
-- [x] Testing: Mocha, Chai, Sinon
+- [ ] Testing: 
+    - [x] Mocha
+    - [x] Chai
+    - [ ] Sinon

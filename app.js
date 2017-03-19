@@ -1,15 +1,10 @@
 const Path = require('path');
-const _ = require('lodash');
 const Hapi = require('hapi');
 const Vision = require('vision');
 const Handlebars = require('handlebars');
+const Routes = require('./routes');
 
 const server = new Hapi.Server();
-
-const Hopper = require('./hopper');
-const Workout = require('./models/workoutModel');
-
-const hopper = new Hopper();
 
 // PLUGINS
 server.register(Vision, function (err) {
@@ -28,51 +23,7 @@ server.connection({
   port: 5555
 });
 
-function getWorkoutByName(request, reply) {
-  const name = request.params.name.toLowerCase();
-  let wod = {};
-  hopper.selectByName(name).then((result) => {
-    console.log(name);
-    const wkt = new Workout(result);
-    wod.name = wkt.name;
-    wod.media = wkt.linksToMovement;
-    wod.body = JSON.stringify(wkt);
-    wod.reps = wkt.getReps();
-    // reply.view('index.html', {title: name, workout: wod});
-    reply(wod);
-  }).catch(err => reply(err));
-}
-
-function getRandomGirlsWorkout(request,reply) {
-  // console.log(request.headers);
-  let wod = {};
-  hopper.spin().then((result) => {
-    const wkt = new Workout(result);
-    wod.name = wkt.name;
-    wod.media = wkt.linksToMovement;
-    wod.body = JSON.stringify(wkt);
-    wod.reps = wkt.getReps();
-    // reply.view('index', { title: 'Hapi', workout: wod });
-    reply(wod);
-  }).catch(err => reply(err));
-}
-
-server.route({
-    path: '/{name}',
-    method:'GET',
-    handler: getWorkoutByName
-  }
-);
-
-server.route({
-    path: '/randomgirls',
-    method:'GET',
-    handler: getRandomGirlsWorkout
-  }
-);
-
-
-
+server.route(Routes);
 
 server.start(function (err) {
   if (err) console.log(err);
