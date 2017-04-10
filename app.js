@@ -23,7 +23,26 @@ server.connection({
   port: 5555
 });
 
+server.state('prev_picks', {
+  ttl: null,
+  domain: '127.0.0.1',
+  path: '/randomgirls',
+  clearInvalid: false,
+  isHttpOnly: false,
+  strictHeader: false,
+  ignoreErrors: false,
+  // isSameSite: 'Strict',
+  encoding: 'base64json'
+});
+
 server.route(Routes);
+
+server.on('request-internal', (request, event, tags) => {
+  
+  if (tags.error && tags.state) {
+    console.error(event);
+  }
+});
 
 server.start(function (err) {
   if (err) console.log(err);

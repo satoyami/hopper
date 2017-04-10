@@ -317,6 +317,12 @@
       "movement": "",
       "url": "",
       "categories": ["olympic-lifting","barbell"]
+    },
+    {
+      "name": "toes-to-bar",
+      "movement": "",
+      "url": "",
+      "categories": ["bodyweight"]
     }
   ]
 }

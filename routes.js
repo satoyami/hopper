@@ -1,17 +1,14 @@
-const Hopper = require('./hopper');
-const hopper = new Hopper();
-const WorkoutModel = require('./models/workoutModel');
 const GirlWorkout = require('./daos/girlWorkouts');
 
 const Routes = [
   {
     path: '/{name}',
     method: 'GET',
-    handler: getWorkoutByName
+    handler: GirlWorkout.getWorkoutByName
   }, {
     path: '/randomgirls',
     method: 'GET',
-    handler: GirlWorkout.getRandomGirlsWorkout
+    handler: GirlWorkout.getRandomGirlsWorkout,
   }
 ];
 

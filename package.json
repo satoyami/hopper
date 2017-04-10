@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "node app.js",
-    "test": "mocha ./test/*.js"
+    "test": "mocha ./test/*.js",
+    "test_models": "mocha ./test/models/*.js",
+    "test_daos": "mocha ./test/daos/*.js",
+    "test_api": "mocha ./test/api/*.js",
+    "test_views": "mocha ./test/views/*.js"
   },
   "author": "",
   "license": "GPL-3.0",

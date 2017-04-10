@@ -3,6 +3,7 @@ const moment = require('moment');
 const warmups = require('./../data/warmups.json');
 
 const props = {
+  id: 'id',
   name: 'name',
   description: 'description',
   timeScheme: 'timeScheme',
@@ -30,6 +31,7 @@ class Workout {
       if (params.hasOwnProperty(props[prop])) this[prop] = params[props[prop]];
     });
 
+    this.id              = params.id;
     this.name            = params.name;
     this.description     = params.description;
     this.timeScheme      = params.timeScheme || 'For time';

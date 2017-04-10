@@ -1,6 +1,6 @@
 const _ = require('lodash');
 const Promise = require('bluebird');
-const workouts = require('./data/girls.json');
+const workouts = require('./../data/girls.json');
 const fs = require('fs');
 const picks = [12,2,4,7,5];
 
@@ -14,17 +14,18 @@ class Hopper {
    * Selects random workout
    * @returns {Promise}
    */
-  spin() {
-    let previousPicks = [];
+  spin(prevPicks) {
+    let trimPicks = prevPicks || [];
+    let oldPicks = [];
     return new Promise((resolve, reject) => {
-      this._trimPicks(picks).then(
-        (list) => {
-          previousPicks = list;
-          return this._getRandomNum(list);
+      this._trimPicks(trimPicks).then(
+        (truncPicksList) => {
+          oldPicks = truncPicksList;
+          return this._getRandomNum(truncPicksList);
         }
       ).then(
         (num) => {
-          previousPicks.push(num);
+          oldPicks.push(num);
           return num;
         }
       ).then(
@@ -100,7 +101,7 @@ class Hopper {
     while(index < workouts.data.length) {
       wktArr.push(index);
       index++;
-    };
+    }
     
     const uniqList = _.difference( wktArr, _.uniq(list));
     const randomNum = Math.floor(Math.random() * uniqList.length);
@@ -123,12 +124,14 @@ class Hopper {
   _trimPicks(list) {
     const half = totalWorkouts/2;
     return new Promise((resolve,reject) => {
-      // if (!_.isEmpty(list)) reject('picks list error');
-      
-      if(list.length < half){
+      if (!_.isEmpty(list)) {
+        if (list.length < half) {
+          resolve(list);
+        } else {
+          resolve(list.slice(-(half)));
+        }
+      } else {
         resolve(list);
-      }else{
-        resolve(list.slice(-(half)));
       }
     });
   }

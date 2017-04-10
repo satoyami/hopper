@@ -2,9 +2,9 @@ const _ = require('lodash');
 const mocha = require('mocha');
 const sinon = require('sinon');
 const should = require('chai').should();
-const Hopper = require('../hopper');
-const WorkoutModel = require('../models/workoutModel');
-const workouts = require('../data/girls.json');
+const Hopper = require('../../models/hopper');
+const WorkoutModel = require('../../models/workoutModel');
+const workouts = require('../../data/girls.json');
 
 describe('Hopper Class', () => {
   // mocha.timeout(30000);

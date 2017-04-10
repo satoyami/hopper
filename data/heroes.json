@@ -1,6 +1,7 @@
 { "data":
   [
     {
+      "id": "1",
       "name": "21 Guns",
       "description": "21 min 400m run, 21 push-ups, 21 box-jumps, 15 burpees, 9 pull-ups",
       "timeScheme": "AMRAP",
@@ -15,6 +16,7 @@
       "categories": ["gymanastics","olympic-lifting","barbell","rings","couplet"]
     },
     {
+      "id": "2",
       "name": "Alexander",
       "description": "5 rounds 31 back-squat, 12 power-cleans",
       "timeScheme": "For Time",
@@ -26,6 +28,7 @@
       "categories": ["gymanastics","olympic-lifting","barbell","rings","couplet"]
     },
     {
+      "id": "3",
       "name": "DT",
       "description": "5 rounds 12 deadlifts, 9 hang-power-cleans, 6 push-jerks",
       "timeScheme": "For Time",
@@ -37,6 +40,20 @@
       "roundMultiplier": 5,
       "weights": {"barbell": "155/105"},
       "categories": ["olympic-lifting","barbell"]
+    },
+    {
+      "id": "4",
+      "name": "Liam",
+      "description": "800m run, 100 toes-to-bar, 50 front-squats, 10 rope-climbs, 800m run",
+      "timeScheme": "For Time",
+      "averageTime": "13 minutes",
+      "timeCap": false,
+      "movements": ["run","toes-to-bar","front-squat","rope-climb"],
+      "repScheme": [100,50,10],
+      "distance": 1600,
+      "roundMultiplier": 1,
+      "weights": {"barbell": "155/105"},
+      "categories": ["front-squat","barbell","bodyweight","gymnastics"]
     }
   ]
 }

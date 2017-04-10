@@ -1,9 +1,10 @@
 const _ = require('lodash');
 const should = require('chai').should();
-const Workout = require('../models/workoutModel');
+const Workout = require('../../models/workoutModel');
 
 describe('Workout Data Model Class', () => {
   const amanda = {
+    id: '1',
     name: 'Amanda',
     description: '9, 7 and 5 reps of muscle-ups and snatches (135/95lbs)',
     timeScheme: 'For Time',
@@ -25,6 +26,9 @@ describe('Workout Data Model Class', () => {
 
     it('returns workout model', () => {
       wm.TYPE.should.eql('Workout');
+    });
+    it('has id property', () => {
+      wm.id.should.eql('1');
     });
     it('has name property', () => {
       wm.name.should.eql('Amanda');
