@@ -10,7 +10,7 @@
       "repScheme": [9,7,5],
       "roundMultiplier": 2,
       "weights": {"snatch": "135/95"},
-      "categories": ["gymanastics","olympic-lifting","barbell","rings","couplet"],
+      "categories": ["gymnastics","olympic-lifting","barbell","rings","couplet"],
       "date": ""
     },
     {
@@ -23,7 +23,7 @@
       "repScheme": [100,100,100,100],
       "roundMultiplier": 1,
       "weights": {},
-      "categories": ["gymanastics","pull-up"],
+      "categories": ["gymnastics","pull-up"],
       "date": ""
     },
     {
@@ -36,7 +36,7 @@
       "repScheme": [20,30,40,50],
       "roundMultiplier": 5,
       "weights": {},
-      "categories": ["gymanastics","pull-up","push-ups","sit-ups","air-squats"],
+      "categories": ["gymnastics","pull-up","push-ups","sit-ups","air-squats"],
       "date": ""
     },
     {
@@ -103,7 +103,7 @@
       "distance": 800,
       "roundMultiplier": 5,
       "weights": {"kettlebell": "70/53"},
-      "categories": ["run","kettlebell-swing","pull-up","monostructural","gymanastics"],
+      "categories": ["run","kettlebell-swing","pull-up","monostructural","gymnastics"],
       "date": ""
     },
     {
@@ -116,7 +116,7 @@
       "repScheme": [21,15,9],
       "roundMultiplier": 2,
       "weights": {"thruster": "95/65"},
-      "categories": ["gymanastics","pull-up","gymanastics"],
+      "categories": ["gymnastics","pull-up","gymnastics"],
       "date": ""
     },
     {
@@ -156,7 +156,7 @@
       "distance": 400,
       "roundMultiplier": 3,
       "weights": {"kettlebell": "53/35"},
-      "categories": ["run","kettlebell-swing","pull-up","monostructural","gymanastics"],
+      "categories": ["run","kettlebell-swing","pull-up","monostructural","gymnastics"],
       "date": ""
     },
     {
@@ -248,7 +248,7 @@
       "movements": ["handstand-push-up","pistol-squat","pull-up"],
       "repScheme": [5,10,15],
       "weights": {},
-      "categories": ["push-ups","pistol-squat","pull-up","gymanastics"],
+      "categories": ["push-ups","pistol-squat","pull-up","gymnastics"],
       "date": ""
     },
     {

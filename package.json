@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node app.js",
-    "test": "mocha ./test/*.js",
+    "test": "mocha ./test/*/*.js",
     "test_models": "mocha ./test/models/*.js",
     "test_daos": "mocha ./test/daos/*.js",
     "test_api": "mocha ./test/api/*.js",
@@ -20,6 +20,9 @@
     "jsdoc": "^3.4.0",
     "lodash": "^4.13.1",
     "moment": "^2.14.1",
+    "mongojs": "^2.4.0",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.0",
     "vision": "^4.1.1"
   },
   "devDependencies": {

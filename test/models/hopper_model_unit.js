@@ -7,9 +7,8 @@ const WorkoutModel = require('../../models/workoutModel');
 const workouts = require('../../data/girls.json');
 
 describe('Hopper Class', () => {
-  // mocha.timeout(30000);
 
-  describe('#spin',() => {
+  describe('#spin', () => {
     const hopper = new Hopper();
     let response;
 

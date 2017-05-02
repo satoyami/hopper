@@ -3,6 +3,16 @@ const Promise = require('bluebird');
 const workouts = require('./../data/girls.json');
 const fs = require('fs');
 const picks = [12,2,4,7,5];
+const MongoJS = require('mongojs');
+
+const db = MongoJS('test', ['workouts']);
+db.on('error', function (err) {
+  console.log('database error', err);
+});
+
+db.on('connect', function () {
+  console.log('database connected');
+});
 
 const totalWorkouts = workouts.data.length;
 
