@@ -1,4 +1,4 @@
-const GirlWorkout = require('./daos/girlWorkouts');
+const GirlWorkout = require('./controllers/girlWorkouts');
 
 const Routes = [
   {

@@ -1,20 +1,14 @@
 const _ = require('lodash');
 const Promise = require('bluebird');
-const workouts = require('./../data/girls.json');
+// const workouts = require('./../data/girls.json');
 const fs = require('fs');
 const picks = [12,2,4,7,5];
-const MongoJS = require('mongojs');
+const workouts = require('../data/workouts');
 
-const db = MongoJS('test', ['workouts']);
-db.on('error', function (err) {
-  console.log('database error', err);
+let totalWorkouts
+workouts.getCount().then((count) => {
+  totalWorkouts = count;
 });
-
-db.on('connect', function () {
-  console.log('database connected');
-});
-
-const totalWorkouts = workouts.data.length;
 
 class Hopper {
   get TYPE() { return 'Hopper'}
@@ -24,24 +18,20 @@ class Hopper {
    * Selects random workout
    * @returns {Promise}
    */
-  spin(prevPicks) {
-    let trimPicks = prevPicks || [];
+  spin() {
+    // let trimPicks = prevPicks || [];
     let oldPicks = [];
     return new Promise((resolve, reject) => {
-      this._trimPicks(trimPicks).then(
-        (truncPicksList) => {
-          oldPicks = truncPicksList;
-          return this._getRandomNum(truncPicksList);
-        }
-      ).then(
-        (num) => {
-          oldPicks.push(num);
-          return num;
-        }
-      ).then(
+      return this._getRandomNum().then((result) => {
+        console.log('1111', result);
+        return result;
+      }).then(
         (picked) => {
-          picks.push(picked);
-          return resolve(workouts.data[picked]);
+          console.log('2222', picked);
+          workouts.getWorkoutById(picked).then((wkt) => {
+            console.log('5555', JSON.stringify(wkt));
+            resolve(wkt[0]);
+          });
         }
       ).catch((err) => {
           console.log(err);
@@ -57,14 +47,13 @@ class Hopper {
    */
   selectByName(name){
     return new Promise((resolve,reject) => {
-      const workoutByName = _.find(workouts.data, (wkt) => {
-        return wkt.name === name;
+      workouts.getNamedWorkout(name).then((wkt) => {
+        if (wkt[0]) {
+          resolve(wkt[0]);
+        } else {
+          reject(`no workout found by name: ${name}`);
+        }
       });
-      if (workoutByName) {
-        return resolve(workoutByName);
-      } else {
-        return reject(`no workout found by name: ${name}`);
-      }
     });
   }
 
@@ -105,25 +94,36 @@ class Hopper {
    * @param list
    * @returns {Promise}
    */
-  _getRandomNum(list) {
-    const wktArr = [];
-    let index = 0;
-    while(index < workouts.data.length) {
-      wktArr.push(index);
-      index++;
-    }
-    
-    const uniqList = _.difference( wktArr, _.uniq(list));
-    const randomNum = Math.floor(Math.random() * uniqList.length);
-
+  _getRandomNum() {
+    const randomNum = Math.floor(Math.random() * totalWorkouts);
+    console.log('0000', totalWorkouts);
     return new Promise((resolve, reject) => {
       if (_.isNumber(randomNum)) {
-        resolve(uniqList[randomNum]);
+        resolve(randomNum);
       } else {
         reject('[_getRandomNum] error generating random number');
       }
     });
   }
+  // _getRandomNum(list) {
+  //   const wktArr = [];
+  //   let index = 0;
+  //   while(index < workouts.data.length) {
+  //     wktArr.push(index);
+  //     index++;
+  //   }
+  //
+  //   const uniqList = _.difference( wktArr, _.uniq(list));
+  //   const randomNum = Math.floor(Math.random() * uniqList.length);
+  //
+  //   return new Promise((resolve, reject) => {
+  //     if (_.isNumber(randomNum)) {
+  //       resolve(uniqList[randomNum]);
+  //     } else {
+  //       reject('[_getRandomNum] error generating random number');
+  //     }
+  //   });
+  // }
 
   /**
    * Truncate previously picked number array
