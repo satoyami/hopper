@@ -4,15 +4,19 @@ const sinon = require('sinon');
 const should = require('chai').should();
 const Hopper = require('../../models/hopper');
 const WorkoutModel = require('../../models/workoutModel');
-const workouts = require('../../data/girls.json');
+const workouts = require('../../data/workouts');
 
 describe('Hopper Class', () => {
-
+  const sandbox = sinon.sandbox.create();
+  const expected_workout_result = {"id": "1", "name": "amanda", "description": "9, 7 and 5 reps of muscle-ups and snatches (135/95lbs)", "timeScheme": "For Time", "averageTime": "5 minutes", "movements": ["muscle-up","snatch"], "repScheme": [9,7,5], "roundMultiplier": 2, "weights": {"snatch": "135/95"}, "categories": ["gymnastics","olympic-lifting","barbell","rings","couplet"], "date": ""}
+  
   describe('#spin', () => {
     const hopper = new Hopper();
     let response;
 
     before(() => {
+      sandbox.stub(hopper, '_getRandomNum')
+        .returns(Promise.resolve(1));
       return hopper.spin().then(
         (result) => {
           response = result;
@@ -20,17 +24,21 @@ describe('Hopper Class', () => {
         }
       );
     });
-
-    it('returns response', () => {
-      should.exist(response);
+    
+    after(() => {
+      sandbox.restore();
     });
 
     it('returns response object', () => {
       response.should.be.instanceOf(Object);
     });
-
+  
+    it('returns mongodb _id', () => {
+      should.exist(response._id);
+    });
+    
     it('returns response with name', () => {
-      should.exist(response.name);
+      response.name.should.eql('amanda');
     });
   });
 
@@ -101,11 +109,10 @@ describe('Hopper Class', () => {
 
   describe('#_getRandomNum', () => {
     const hopper = new Hopper();
-    const list = [1,2,3,4,10,15,2,5,5];
     let response;
 
     before(() => {
-      return hopper._getRandomNum(list).then(
+      return hopper._getRandomNum().then(
         (result) => {
           response = result;
           return response;
@@ -119,61 +126,6 @@ describe('Hopper Class', () => {
 
     it('returns number', () => {
       response.should.be.a('number');
-    });
-
-    it('returns number not in list', () => {
-      let uniqList = _.uniq(list);
-      _.includes(uniqList, response).should.eql(false);
-    });
-  });
-
-  describe('#_trimPicks',() => {
-    const hopper = new Hopper();
-    let list;
-    let response;
-
-    context('when pick history is more than half total workouts',() => {
-      const totalWorkouts = workouts.data.length;
-
-      before(() => {
-        list = [1,2,3,4,5,6,7,8,9,10,11,12];
-        return hopper._trimPicks(list).then(
-          (result) => {
-            // console.log(result);
-            response = result;
-            return response;
-          }
-        );
-      });
-
-      it('returns response', () => {
-        should.exist(response);
-      });
-
-      it('returns half totalWorkouts length', () => {
-        response.length.should.eql(totalWorkouts/2);
-      });
-    });
-
-    context('when pick history is less than half total workouts',() => {
-      before(() => {
-        list = [1,2,3,4,5,6,7,8];
-        return hopper._trimPicks(list).then(
-          (result) => {
-            // console.log(result);
-            response = result;
-            return response;
-          }
-        );
-      });
-
-      it('returns response', () => {
-        should.exist(response);
-      });
-
-      it('returns list length', () => {
-        response.length.should.eql(list.length);
-      });
     });
   });
 });

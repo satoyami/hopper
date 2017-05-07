@@ -11,7 +11,7 @@ db.on('connect', function () {
 const workouts = {
   getCount: () => {
     return new Promise((resolve, reject) => {
-      return db.workouts.count(function (err, count) {
+      db.workouts.count(function (err, count) {
         if (err) reject(err);
         resolve(count);
       });
@@ -33,13 +33,26 @@ const workouts = {
       });
     });
   },
-  getWorkoutById: (id) => {
-    const idFormatted = id;
-    console.log('3333', idFormatted);
+  createWorkout: (workout) => {
     return new Promise((resolve, reject) => {
-      db.workouts.find({id: idFormatted}, (err, docs) => {
+      db.workouts.insert(workout, (err, inserted) => {
         if (err) reject(err);
-        console.log('4444', JSON.stringify(docs));
+        resolve(inserted);
+      });
+    });
+  },
+  getWorkoutByMovment: (movement) => {
+    return new Promise((resolve, reject) => {
+      db.workouts.find({movements: movement}, (err, docs) => {
+        if (err) reject(err);
+        resolve(docs);
+      });
+    });
+  },
+  getWorkoutById: (id) => {
+    return new Promise((resolve, reject) => {
+      db.workouts.find({id: id}, (err, docs) => {
+        if (err) reject(err);
         resolve(docs);
       });
     });
