@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+        <!-- some styles -->
+    </style>
+</head>
+<body>
+<!-- Textfield with Floating Label -->
+
+<form id="add-workout" action="/name" method="post">
+    {{#each result}}
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample4">
+        <label class="mdl-textfield__label" for="sample4">{{id}}</label>
+        <span class="mdl-textfield__error">Input is not a number!</span>
+    </div>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" type="text" id="sample3" value="{{name}}">
+        <label class="mdl-textfield__label" for="sample3">{{name}}</label>
+    </div>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" type="text" id="sample3" value="{{description}}">
+        <label class="mdl-textfield__label" for="sample3">{{description}}</label>
+    </div>
+    {{/each}}
+    <!-- Accent-colored raised button with ripple -->
+    <button type="submit" value="Submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+        Submit
+    </button>
+</form>
+<script>
+//  (function () {
+//    var stuff = $()
+//    $('#add-workout').append()
+//  })();
+</script>
+</body>
+</html>

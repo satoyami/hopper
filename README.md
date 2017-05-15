@@ -8,7 +8,7 @@ can be an mental/time investment.My goal is to create an application
 to aid me in creating workouts with minimal effort on my part but with 
 my criteria/taste respected.
 ### Solution:
-Create application to randomly select crossfit/functional workouts. 
+Create application to randomly select crossfit/HIIT/functional workouts. 
 ### Purpose:
 Primarily a sandbox for a handful of javascript frameworks and ES6
 features as well as a POC of generating workouts, in a future release,
@@ -16,24 +16,26 @@ to later pass to machine learning API.
 
 ### Technologies:
 - [ ] Hapi.js: API framework
-    - [ ] breakout routes
+    - [x] breakout routes
     - [ ] breakout handlers(controllers)
-    - [ ] breakout DAO
     - [ ] add logging(Good/components)
 - [x] Node.js v6.6.0: js engine
     - [x] *n* Nodejs version manager 2.1.0 
 - [x] Material Design Lite: Google's *bootstrap* library for 'look and feel'
 - [x] Handlebars: HTML template engine
+- [ ] Decouple front-end
+    - [ ] React/Angular2
 - [ ] Data Models
     - [x] Girls workouts
     - [x] Heroes workouts
     - [ ] Daily WODs (some type of feed)
     - [ ] other WOD generators
     - [ ] report metrics
-- [ ] Database/DAO: TBD (Mongodb/Couchdb/RethinkDB)
-    - [ ] connect to DB
-    - [ ] upload data
-- [ ] Metrics reporting/tracking
+- [ ] Database: Mongodb
+    - [x] connect to DB
+    - [x] upload data
+    - [ ] create test
+- [ ] User metrics reporting/tracking
     - [ ] body weight
     - [ ] diet (caloric intake)
     - [ ] sleep (duration/quality)
@@ -46,4 +48,5 @@ to later pass to machine learning API.
 - [ ] Testing: 
     - [x] Mocha
     - [x] Chai
-    - [ ] Sinon
+    - [x] Sinon
+    - [ ] Lab (Hapi version of Mocha, includes binding for coverage report)

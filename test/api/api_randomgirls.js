@@ -1,8 +1,7 @@
 const mocha = require('mocha');
 const sinon = require('sinon');
 const should = require('chai').should();
-const request = require('request-promise');
-// const server = require('../../app');
+const server = require('../../app');
 
 describe('/randomgirls', () => {
   // before('start server', () => {

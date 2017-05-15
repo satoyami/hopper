@@ -1,0 +1,15 @@
+{
+  "id": "22",
+  "name": "2017_regional_event_2",
+  "description": "21, 15, 9 dumbbell snatches, ring-dips",
+  "timeScheme": "For Time",
+  "averageTime": "25 minutes",
+  "movements": ["dumbbell-snatches","ring-dips"],
+  "repScheme": [21,15,9],
+  /*"distance": ,*/
+  "roundMultiplier": 1,
+  "weights": {"dumbbell": "80/55"},
+  "categories": ["dumbbell-snatches","ring-dips"],
+  "date": "",
+  "type": "regionals"
+}

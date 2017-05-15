@@ -9,6 +9,7 @@
     "test_models": "mocha ./test/models/*.js",
     "test_daos": "mocha ./test/daos/*.js",
     "test_api": "mocha ./test/api/*.js",
+    "test_db": "mocha ./test/data/*.js",
     "test_views": "mocha ./test/views/*.js"
   },
   "author": "",
